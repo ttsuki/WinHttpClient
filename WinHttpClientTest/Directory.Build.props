@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <IntDir>$(SolutionDir)build\$(MSBuildProjectName)_$(Platform)$(Configuration)\int\</IntDir>
+        <OutDir>$(SolutionDir)build\$(MSBuildProjectName)_$(Platform)$(Configuration)\out\</OutDir>
+    </PropertyGroup>
+    <ItemDefinitionGroup>
+        <ClCompile>
+            <LanguageStandard>stdcpp17</LanguageStandard>
+            <ConformanceMode>true</ConformanceMode>
+            <AdditionalOptions>/source-charset:utf-8 /Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+            <WarningLevel>Level4</WarningLevel>
+            <SDLCheck>true</SDLCheck>
+            <RuntimeLibrary Condition="'$(Configuration)'!='Debug'">MultiThreaded</RuntimeLibrary>
+            <RuntimeLibrary Condition="'$(Configuration)'=='Debug'">MultiThreadedDebug</RuntimeLibrary>
+            <MultiProcessorCompilation>true</MultiProcessorCompilation>
+        </ClCompile>
+        <Link>
+            <EnableCOMDATFolding Condition="'$(Configuration)'!='Debug'">true</EnableCOMDATFolding>
+            <OptimizeReferences Condition="'$(Configuration)'!='Debug'">true</OptimizeReferences>
+            <GenerateDebugInformation>true</GenerateDebugInformation>
+        </Link>
+    </ItemDefinitionGroup>
+</Project>

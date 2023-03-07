@@ -1,0 +1,5 @@
+/.vs
+/build
+/packages
+*.user
+imgui.ini
